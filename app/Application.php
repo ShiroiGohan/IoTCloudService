@@ -10,6 +10,10 @@ class Application extends Model
     return $this -> belongsTo('App\User');
   }
 
+  public function application_data() {
+    return $this -> hasMany('App\ApplicationData');
+  }
+
   protected $fillable = [
     'name', 'description'
   ];

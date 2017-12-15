@@ -8,9 +8,7 @@
   <div class="container">
     <h1> Form goes here.</h1>
     <form class="form" method="post">
-      <input name="_method" type="hidden" value="put">
-      Name<input type="text" name="name" value="{{ $app -> name }}"></input>
-      Description<input type="text" name="description" value="{{ $app -> description }}"></input>
+      <input name="_method" type="hidden" value="delete">
       {{ csrf_field() }}
       <input type="submit"></input>
     </form>

@@ -30,6 +30,8 @@ class ApplicationController extends Controller
     if ($app -> save()) {
       return redirect() -> route('application_view', ['id' => $app -> id]);
     }
+    // Save failure.
+    else return response() -> view('static/internal_error', [], 500);
   }
 
   public function view($id) {
@@ -37,6 +39,7 @@ class ApplicationController extends Controller
     if ($app) {
       return view('application/view', ['application' => $app]);
     }
+    // No such application for current user.
     else return response() -> view('static/not_found', [], 404);
   }
 
@@ -45,6 +48,7 @@ class ApplicationController extends Controller
     if ($app) {
       return view('application/edit', ['application' => $app]);
     }
+    // No such application for current user.
     else return response() -> view('static/not_found', [], 404);
   }
 
@@ -53,6 +57,27 @@ class ApplicationController extends Controller
     if ($app) {
       if ($app -> update($request -> all())) {
         return redirect() -> route('application_view', ['id' => $app -> id]);
+      }
+      // Update failure.
+      else return response() -> view('static/internal_error', [], 500);
+    }
+    // No such application for current user.
+    else return response() -> view('static/not_found', [], 404);
+  }
+
+  public function delete($id) {
+    $app = Application::where(['owner_id' => Auth::user() -> id, 'id' => $id]) -> first();
+    if ($app) {
+      return view('application/delete', ['application' => $app]);
+    }
+    else return response() -> view('static/not_found', [], 404);
+  }
+
+  public function destroy(Request $request, $id) {
+    $app = Application::where(['owner_id' => Auth::user() -> id, 'id' => $id]) -> first();
+    if ($app) {
+      if ($app -> delete()) {
+        return redirect() -> route('application_index');
       }
       else return response() -> view('static/internal_error', [], 500);
     }

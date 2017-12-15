@@ -19,7 +19,17 @@ Route::post('/apps/new', 'ApplicationController@create') -> name('application_cr
 Route::get('/apps/{id}', 'ApplicationController@view') -> name('application_view');
 Route::get('/apps/{id}/edit', 'ApplicationController@edit') -> name('application_edit');
 Route::put('/apps/{id}/edit', 'ApplicationController@update') -> name('application_update');
+Route::get('/apps/{id}/delete', 'ApplicationController@delete') -> name('application_delete');
+Route::delete('/apps/{id}/delete', 'ApplicationController@destroy') -> name('application_destroy');
 
+Route::get('/apps/{app_id}/types', 'ApplicationDataController@index') -> name('application_data_index');
+Route::get('/apps/{app_id}/types/new', 'ApplicationDataController@new') -> name('application_data_new');
+Route::post('/apps/{app_id}/types/new', 'ApplicationDataController@create') -> name('application_data_create');
+Route::get('/apps/{app_id}/types/{id}', 'ApplicationDataController@view') -> name('application_data_view');
+Route::get('/apps/{app_id}/types/{id}/edit', 'ApplicationDataController@edit') -> name('application_data_edit');
+Route::put('/apps/{app_id}/types/{id}/edit' ,'ApplicationDataController@update') -> name('application_data_update');
+Route::get('/apps/{app_id}/types/{id}/delete', 'ApplicationDataController@delete') -> name('application_data_delete');
+Route::delete('/apps/{app_id}/types/{id}/delete', 'ApplicationDataController@destroy') -> name('application_data_destroy');
 
 Auth::routes();
 
