@@ -19,7 +19,8 @@ Route::post('/apps/new', 'ApplicationController@create') -> name('application_cr
 Route::get('/apps/{id}', 'ApplicationController@view') -> name('application_view');
 Route::get('/apps/{id}/edit', 'ApplicationController@edit') -> name('application_edit');
 Route::put('/apps/{id}/edit', 'ApplicationController@update') -> name('application_update');
-
+Route::get('/apps/{id}/delete', 'ApplicationController@delete') -> name('application_delete');
+Route::delete('/apps/{id}/delete', 'ApplicationController@destroy') -> name('application_destroy');
 
 Auth::routes();
 
