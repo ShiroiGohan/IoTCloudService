@@ -17,9 +17,13 @@ Route::get('/apps', 'ApplicationController@index') -> name('application_index');
 Route::get('/apps/new', 'ApplicationController@new') -> name('application_new');
 Route::post('/apps/new', 'ApplicationController@create') -> name('application_create');
 Route::get('/apps/{id}', 'ApplicationController@view') -> name('application_view');
+Route::get('/apps/{id}/edit', 'ApplicationController@edit') -> name('application_edit');
+Route::put('/apps/{id}/edit', 'ApplicationController@update') -> name('application_update');
+
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/not_found', 'StaticController@not_found') -> name('not_found');
+Route::get('/internal_error', 'StaticController@internal_error') -> name('internal_error');
