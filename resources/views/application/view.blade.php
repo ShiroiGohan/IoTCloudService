@@ -10,7 +10,7 @@
     <div class="col-sm-12 col-md-12"> 
         <ol class="breadcrumb">
           <li><a href="{{ route('application_index') }}">Applications</a></li>
-          <li><a href="{{ $application -> id }}">{{ $application -> name }}</a></li>
+          <li><a href="{{ route('application_view', ['id' => $application -> id ]) }}">{{ $application -> name }}</a></li>
         </ol>
     </div>
     <div class="col-sm-12 col-md-12">
@@ -83,7 +83,9 @@
       </div>
     </div>
     <div class="col-sm-12 col-md-12">
-        <a href="{{ route('application_delete', ['id' => $application -> id ]) }}"><button type="button" class="btn btn-danger btn-sm">Delete Application</button></a> 
+      <a href="{{ route('application_data_index', ['app_id' => $application -> id ]) }}"><button type="button" class="btn btn-default btn-sm">Application Data</button></a>    
+       &nbsp;&nbsp;   
+      <a href="{{ route('application_delete', ['id' => $application -> id ]) }}"><button type="button" class="btn btn-danger btn-sm">Delete Application</button></a> 
     </div>
   </div>
 </div>

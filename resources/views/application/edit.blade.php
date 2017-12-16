@@ -9,7 +9,7 @@
     <div class="col-sm-12 col-md-12"> 
         <ol class="breadcrumb">
           <li><a href="{{ route('application_index') }}">Applications</a></li>
-          <li><a href="{{ $application -> id }}">{{ $application -> name }}</a></li>
+          <li><a href="{{ route('application_view', ['id' => $app -> id ]) }}">{{ $application -> name }}</a></li>
         </ol>
     </div>
     <div class="col-sm-12 col-md-12">
