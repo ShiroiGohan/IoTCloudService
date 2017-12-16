@@ -31,6 +31,15 @@ Route::put('/apps/{app_id}/types/{id}/edit' ,'ApplicationDataController@update')
 Route::get('/apps/{app_id}/types/{id}/delete', 'ApplicationDataController@delete') -> name('application_data_delete');
 Route::delete('/apps/{app_id}/types/{id}/delete', 'ApplicationDataController@destroy') -> name('application_data_destroy');
 
+Route::get('/apps/{app_id}/keys', 'ApplicationKeyController@index') -> name('application_key_index');
+Route::get('/apps/{app_id}/keys/new', 'ApplicationKeyController@new') -> name('application_key_new');
+Route::post('/apps/{app_id}/keys/new', 'ApplicationKeyController@create') -> name('application_key_create');
+Route::get('/apps/{app_id}/keys/{id}', 'ApplicationKeyController@view') -> name('application_key_view');
+Route::get('/apps/{app_id}/keys/{id}/edit', 'ApplicationKeyController@edit') -> name('application_key_edit');
+Route::put('/apps/{app_id}/keys/{id}/edit', 'ApplicationKeyController@update') -> name('application_key_update');
+Route::get('/apps/{app_id}/keys/{id}/delete', 'ApplicationKeyController@delete') -> name('application_key_delete');
+Route::delete('/apps/{app_id}/keys/{id}/delete', 'ApplicationKeyController@destroy') -> name('application_key_destroy');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
