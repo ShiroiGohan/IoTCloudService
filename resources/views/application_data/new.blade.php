@@ -20,7 +20,7 @@
         </div>
         <div class="row">
           <div class="col-sm-5 col-md-5" > 
-            Pattern<input type="text" name="patter_array" class="form-control"></input>
+            Pattern<input type="text" name="pattern_array" class="form-control"></input>
           </div>  
         </div>
         {{ csrf_field() }}

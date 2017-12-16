@@ -77,14 +77,16 @@
             <tr>
               <th>Updated Time</th>
               <th>{{ $application -> updated_at }}</th>
-            </tr>   
+            </tr>  
+            <tr>
+              <th>Data Type</th>
+              <th><a href="{{ route('application_data_index', ['app_id' => $application -> id ]) }}"><button type="button" class="btn btn-link btn-sm">Show Application Data</button></a></th>
+            </tr>  
           </tbody>  
         </table>
       </div>
     </div>
-    <div class="col-sm-12 col-md-12">
-      <a href="{{ route('application_data_index', ['app_id' => $application -> id ]) }}"><button type="button" class="btn btn-default btn-sm">Application Data</button></a>    
-       &nbsp;&nbsp;   
+    <div class="col-sm-12 col-md-12">  
       <a href="{{ route('application_delete', ['id' => $application -> id ]) }}"><button type="button" class="btn btn-danger btn-sm">Delete Application</button></a> 
     </div>
   </div>

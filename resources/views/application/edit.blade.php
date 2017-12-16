@@ -4,12 +4,13 @@
   Application - Edit
 @endsection
 
-@section('content')<div class="container">
+@section('content')
+<div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-12"> 
         <ol class="breadcrumb">
           <li><a href="{{ route('application_index') }}">Applications</a></li>
-          <li><a href="{{ route('application_view', ['id' => $app -> id ]) }}">{{ $application -> name }}</a></li>
+          <li><a href="{{ route('application_view', ['id' => $application -> id ]) }}">{{ $application -> name }}</a></li>
         </ol>
     </div>
     <div class="col-sm-12 col-md-12">
@@ -78,6 +79,10 @@
             <tr>
               <th>Updated Time</th>
               <th>{{ $application -> updated_at }}</th>
+            </tr> 
+            <tr>
+              <th>Data Type</th>
+              <th><a href="{{ route('application_data_index', ['app_id' => $application -> id ]) }}"><button type="button" class="btn btn-link btn-sm">Show Application Data</button></a></th>
             </tr>   
           </tbody>  
         </table>
