@@ -6,11 +6,19 @@
 
 @section('content')
   <div class="container">
-    <a class="btn btn-default" href="{{ route('application_new') }}">New Application</a>
-    <h1> Application list goes here.</h1>
-    {{ json_encode($applications) }}
+    <h1>Applications<a class="btn btn-link btn-lg" href="{{ route('application_new') }}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></h1>
+    <div class="row">
     @foreach ($applications as $app)
-      {{ $app -> name }}
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+       <div class="caption">
+         <h3>{{ $app -> name }}</h3>
+         <p>{{ $app -> description }}</p>
+        <p><a class="btn btn-primary" role="button" href="{{ route('application_view', ['id' => $app -> id ]) }}">Detail</a> 
+       </div>
+      </div>
+     </div>
     @endforeach
+</div>
   </div>
 @endsection
