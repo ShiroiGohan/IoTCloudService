@@ -37,7 +37,7 @@ class ApplicationDataController extends Controller
   public function new($app_id) {
     $app = Application::where(['owner_id' => Auth::user() -> id, 'id' => $app_id]) -> first();
     if ($app) {
-      return view('application_data/new');
+      return view('application_data/new', ['application' => $app]);
     }
     return response() -> view('static/not_found', [], 404);
   }

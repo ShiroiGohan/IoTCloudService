@@ -14,6 +14,10 @@ class Application extends Model
     return $this -> hasMany('App\ApplicationData');
   }
 
+  public function application_keys() {
+    return $this -> hasMany('App\ApplicationKey');
+  }
+
   protected $fillable = [
     'name', 'description'
   ];
